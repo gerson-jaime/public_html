@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>tvcabo</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="side_nav.css">
+    <link rel="stylesheet" href="login/login_style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-tv'></i>
+            <span class="logo_name">tvcabo</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-exit'></i>
+                    <span class="links_name">Entrar</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-news'></i>
+                    <span class="links_name">Notícias</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-phone-call'></i>
+                    <span class="links_name">Suporte</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Monitoramento de geradores</span>
+            </div>
+            <div class="profile-details">
+                <span class="admin_name">Dados do usuário</span>
+                <i class='bx bx-user-circle'></i>
+            </div>
+        </nav>
+        <div class="home-content">
+                <div class="container">
+                    <div class="form-image">
+                        <img src="login/img.svg" alt="">
+                    </div>
+                    <div class="form">
+                            <form action="login/verificar.php" method="POST" >
+                            <div class="form-header">
+                                <div class="title">
+                                    <h1>Iniciar sessão</h1>
+                                </div>
+                            </div>
+            
+                            <div class="input-group">
+                                <div class="input-box">
+                                    <label for="email">E-mail</label>
+                                    <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                                </div>          
+                                <div class="input-box">
+                                    <label for="senha">Senha</label>
+                                    <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required>
+                                </div>
+                            </div>
+                            <div class="gender-inputs">
+                                <div class="gender-title">
+                                    <h6>Entrar como</h6>
+                                </div>
+            
+                                <div class="gender-group">
+                                    <div class="gender-input">
+                                        <input id="female" type="radio" name="tipo_login" value="admin" checked>
+                                        <label for="female">Administrador </label>
+                                    </div>
+            
+                                    <div class="gender-input">
+                                        <input id="male" type="radio" name="tipo_login" value="comum">
+                                        <label for="male">Usuário comum</label>
+                                    </div>                                 
+                                </div>
+                            </div>
+                            <div class="login-button">
+                                <button type="submit" >Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <footer><!--New-->
+        <p>&copy; 2022 - Site criado por <a href="#">Gerson Jaime</a> para a <a href="#">tvcabo</a>.</p>
+    </footer>
+    <script>
+    // Tratando eventos do cbeçalho
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+    // Login
+        var botao_entrar = window.document.querySelector('#botao_entrar');
+        var html_response;
+        botao_entrar.addEventListener('click', entrar);
+
+            function entrar() {
+                var user = window.document.querySelector('#user');
+                var senha = window.document.querySelector('#senha');
+                console.log(`Usuário: ${user.value} \nSenha: ${senha.value}`);
+            }
+    </script>
+</body>
+</html>
