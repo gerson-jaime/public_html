@@ -1,7 +1,8 @@
 <?php
+
 //Base de dados
 include "connect.php";
-$sql ="SELECT * FROM `gerador_001` WHERE `id` = (SELECT MAX(`id`) FROM `gerador_001`);";
+$sql ="SELECT * FROM `G001` WHERE `id` = (SELECT MAX(`id`) FROM `G001`);";
 $res = mysqli_query($strcon, $sql) or die("Erro ao tentar consultar a BD");
 
 //Obtendo os dados por meio de um loop while
@@ -61,13 +62,13 @@ $update = json_decode($input);
 $message = $update -> message;
 $text = $message -> text;
 
-$chat_id = 5457712188;//$message -> chat -> id;
-$token = '5471927718:AAG1sN1_uQM7Kj6lvb6OFnwjCWU46Hi0Dhw';
+$chat_id = 5457712188; //$message -> chat -> id;
+$token = '5586449022:AAGqg34LtaIHup82Z6QRyLzYmKmavOceN94';
+
 
 if($text == 'G001' or $text == 'g001' ){
     file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=$msg");
 }else{
   file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=$error");  
 }
-
 ?>
